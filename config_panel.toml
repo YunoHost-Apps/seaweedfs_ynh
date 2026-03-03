@@ -30,6 +30,87 @@ ask.en = "path to datadir"
 ask.fr = "Chemin du dossier à ajouter"
 type = "path"
 bind = "null"
+help.fr = "Attention: ce dossier ne sera pas inclus dans le backup. Attribuez les bonnes permissions à ce dossier : chown -R seaweedfs:seaweedfs /your/data/dir"
+help.en = "Caution: This directory won't be included in the backup. Set the right permissions to this directory : chown -R seaweedfs:seaweedfs /your/data/dir"
+
+[main.volume.extra_volume_add]
+ask.fr = "Ajouter le volume"
+ask.en = "Add volume"
+style = "success"
+type = "button"
+
+[main.remove_volume]
+name.en = "Remove volume server"
+name.fr = "Supprimer un pod volume"
+
+[main.remove_volume.volume_id]
+ask.fr = "Numéro du volume à supprimer"
+ask.en = "Id of the volume to be removed"
+type = "number"
+bind = "null"
+
+[main.remove_volume.delete_volume]
+type = "button"
+ask.fr = "Supprimer le volume"
+ask.en = "Remove volume"
+style = "danger"
+
+[main.worker]
+name.en = "Add a worker pod"
+name.fr = "Ajouter un pod worker"
+
+[main.worker.add_worker]
+ask.fr = "Ajouter un worker"
+ask.en = "Add worker"
+style = "success"
+type = "button"
+
+[main.remove_worker]
+name.en = "Remove worker pod"
+name.fr = "Supprimer un pod worker"
+
+[main.remove_worker.worker_id]
+ask.fr = "Numéro du worker à supprimer"
+ask.en = "Id of the worker to be removed"
+type = "number"
+bind = "null"
+
+[main.remove_worker.delete_worker]
+type = "button"
+ask.fr = "Supprimer le worker"
+ask.en = "Remove worker"
+style = "danger"version = "1.0"
+
+[main]
+name.en = "Configuration panel"
+name.fr = "Panneau de configuration"
+services = ["__APP__-master", "__APP__-admin"]
+
+[main.limit_size]
+name.en = "Upload limit size"
+name.fr = "Téléchargement de fichiers"
+
+[main.limit_size.warning]
+ask.fr = "Taille limite pour l'import de fichiers (paramètre reporté dans la configuration NGINX du domaine)."
+ask.en = "Size limit file upload"
+type = "alert"
+style = "info"
+
+[main.limit_size.upload_max_size]
+ask.fr = "Taille limite pour le téléchargement des fichiers en Mo"
+ask.en = "Size limit file upload (Mb)"
+type = "number"
+bind = "null"
+
+[main.volume]
+name.en = "Add a volume server"
+name.fr = "Ajouter un pod volume"
+
+[main.volume.extra_volume_dir]
+ask.en = "path to datadir"
+ask.fr = "Chemin du dossier à ajouter"
+type = "path"
+bind = "null"
 help.fr = "Attribuez les bonnes permissions à ce dossier : chown -R seaweedfs:seaweedfs /your/data/dir"
 help.en = "Set the right permissions to this directory : chown -R seaweedfs:seaweedfs /your/data/dir"
 
