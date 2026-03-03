@@ -48,7 +48,7 @@ ynh_script_progression "Restoring $app's services..."
       echo "$volume_name"
       serv="${volume_name%.service}"
       ynh_restore "/etc/systemd/system/$serv"
-      systemctl enable "$serv"
+      systemctl enable "$serv" --quiet
       yunohost service add  "$serv" --description="SeaweedFS $serv" --log="/var/log/$app/$serv.log"
       ynh_systemctl --service="$serv" --action="start"
   done
