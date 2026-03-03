@@ -7,11 +7,11 @@
       ]
     },
     {
-      "name": "some_admin_user",
+      "name": "__ADMIN__",
       "credentials": [
         {
-          "accessKey": "some_access_key1",
-          "secretKey": "some_secret_key1"
+          "accessKey": "__ADMIN_KEY__",
+          "secretKey": "__ADMIN_SECRET__"
         }
       ],
       "actions": [
@@ -20,48 +20,6 @@
         "List",
         "Tagging",
         "Write"
-      ]
-    },
-    {
-      "name": "some_read_only_user",
-      "credentials": [
-        {
-          "accessKey": "some_access_key2",
-          "secretKey": "some_secret_key2"
-        }
-      ],
-      "actions": [
-        "Read"
-      ]
-    },
-    {
-      "name": "some_normal_user",
-      "credentials": [
-        {
-          "accessKey": "some_access_key3",
-          "secretKey": "some_secret_key3"
-        }
-      ],
-      "actions": [
-        "Read",
-        "List",
-        "Tagging",
-        "Write"
-      ]
-    },
-    {
-      "name": "user_limited_to_bucket1",
-      "credentials": [
-        {
-          "accessKey": "some_access_key4",
-          "secretKey": "some_secret_key4"
-        }
-      ],
-      "actions": [
-        "Read:bucket1",
-        "List:bucket1",
-        "Tagging:bucket1",
-        "Write:bucket1"
       ]
     }
   ]
