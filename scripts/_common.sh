@@ -12,7 +12,6 @@ for vol in /etc/systemd/system/${app}-volume@*.service; do
     index="${instance##*@}"                  
     volume_index+=("$index")
 done
-[[ ${#volume_index[@]} -eq 0 ]] && volume_index=(1)
 
 # existing workers index
 worker_index=()
