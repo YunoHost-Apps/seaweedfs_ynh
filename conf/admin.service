@@ -10,7 +10,7 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 #EnvironmentFile=__INSTALL_DIR__/.env
-ExecStart=__INSTALL_DIR__/./weed admin -port=__PORT_ADMIN__ -master=localhost:__PORT_MASTER__ -dataDir=__DATA_DIR__/seaweedfs-admin
+ExecStart=__INSTALL_DIR__/./weed admin -adminUser=__ADMIN__ -adminPassword=__ADMIN_PW__ -port=__PORT_ADMIN__ -master=localhost:__PORT_MASTER__ -dataDir=__DATA_DIR__/seaweedfs-admin
 StandardOutput=append:/var/log/__APP__/__APP__-admin.log
 StandardError=inherit
 
