@@ -1,4 +1,4 @@
-The admin URL is <https://__DOMAIN____PATH__admin>. 
+The admin URL is <https://__DOMAIN____PATH__admin> and is available only to users in the admins group.  
 
 ### Credentials
 
