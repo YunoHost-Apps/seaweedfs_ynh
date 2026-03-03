@@ -31,7 +31,7 @@ ask.fr = "Chemin du dossier à ajouter"
 type = "path"
 bind = "null"
 help.fr = "Attention: ce dossier ne sera pas inclus dans le backup. Attribuez les bonnes permissions à ce dossier : chown -R seaweedfs:seaweedfs /your/data/dir"
-help.en = "Caution: This directory won't be included in the backup. Set the right permissions to this directory : chown -R seaweedfs:seaweedfs /your/data/dir"
+help.en = "Caution: this directory won't be included in the backup. Set the right permissions to this directory : chown -R seaweedfs:seaweedfs /your/data/dir"
 
 [main.volume.extra_volume_add]
 ask.fr = "Ajouter le volume"
