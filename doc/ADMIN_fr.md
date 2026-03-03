@@ -63,9 +63,9 @@ object_storage:
   endpoint: '__DOMAIN__'
   credentials:
     # You can also use AWS_ACCESS_KEY_ID env variable
-    access_key_id: '`__ADMIN_KEY__`'
+    access_key_id: '__ADMIN_KEY__'
     # You can also use AWS_SECRET_ACCESS_KEY env variable
-    secret_access_key: '`__ADMIN_SECRET__`'
+    secret_access_key: '__ADMIN_SECRET__'
 
   streaming_playlists:
     # Bucket name created on your object storage provider
@@ -119,9 +119,9 @@ object_storage:
 
   credentials:
     # You can also use AWS_ACCESS_KEY_ID env variable
-    access_key_id: '`__ADMIN_KEY__`'
+    access_key_id: '__ADMIN_KEY__'
     # You can also use AWS_SECRET_ACCESS_KEY env variable
-    secret_access_key: '`__ADMIN_SECRET__`'
+    secret_access_key: '__ADMIN_SECRET__'
 
   streaming_playlists:
     # Bucket name created on your object storage provider
