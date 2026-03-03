@@ -47,11 +47,12 @@ ynh_config_change_url_nginx
 ynh_script_progression "Reloading $app's services and NGINX web server..."
 
 ynh_systemctl --service="$app-master" --action="start"
-ynh_systemctl --service="$app-filer" --action="start"
 
 for index_volume in "${volume_index[@]}"; do
 	ynh_systemctl --service="$app-volume@$index_volume" --action="start"
 done
+
+ynh_systemctl --service="$app-filer" --action="start"
 
 for index_worker in "${worker_index[@]}"; do
 	ynh_systemctl --service="$app-worker@$index_worker" --action="start"
