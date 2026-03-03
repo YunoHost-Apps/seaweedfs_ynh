@@ -27,12 +27,15 @@ for index_volume in "${volume_index[@]}"; do
 ynh_systemctl --service="$app-volume@$index_volume" --action="stop" --log_path="systemd"
 sleep 5
 yunohost service remove "$app-volume@$index_volume"
+ynh_safe_rm /etc/systemd/system/$app-volume@$index_volume.service
 done
 
 for index_worker in "${worker_index[@]}"; do
 ynh_systemctl --service="$app-worker@$index_worker" --action="stop" --log_path="systemd"
 sleep 5
 yunohost service remove "$app-worker@$index_worker"
+ynh_safe_rm /etc/systemd/system/$app-worker@$index_worker.service
+
 done
 
 ynh_systemctl --service="$app-s3" --action="stop" --log_path="systemd"
