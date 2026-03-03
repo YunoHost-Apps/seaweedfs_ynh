@@ -5,9 +5,9 @@ name = "SeaweedFS"
 description.en = "Versatile and efficient storage system"
 description.fr = "Système de stockage polyvalent et efficace"
 
-version = "4.09~ynh1"
+version = "4.13~ynh1"
 
-maintainers = [ ]
+maintainers = ["otm33GH"]
 
 [upstream]
 license = "Apache-2.0"
@@ -21,7 +21,7 @@ helpers_version = "2.1"
 architectures = ['amd64']
 multi_instance = false
 
-ldap = false
+ldap = true
 sso = false
 
 disk = "200M"
@@ -36,15 +36,33 @@ ram.runtime = "200M"
     [install.init_main_permission]
     type = "group"
     default = "visitors"
-   
+
+    [install.admin]
+    type = "user"
+    
+    [install.admin_pw]
+    ask.en = "Please chose a password for the admin user."
+    ask.fr = "Choisissez un mot de passe pour l'administrateur."
+    type = "password"
+    
+    [install.volume_size]
+    ask.en = "Size of each volume in Mb"
+    ask.fr = "Taille de chaque volume en Mo"
+    help.en = "Will depend on free disk space. Each bucket will create one collection, with at least 7 volumes by default. Note that multiple volume servers can be created."
+    help.fr = "En fonction de l'espace disque disponible. Cahque bucket crée une collection de, par défaut, 7 volumes. Plusieurs serveurs de volumes peuvent être créés ultérieurement."
+    type = "number"
+    default = 100
+    min = 10
+    max = 100000
+       
 [resources]
 
     [resources.sources.main]
     in_subdir = false
-    amd64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.09/linux_amd64.tar.gz"
-    amd64.sha256 = "ffa77c59375be2a51253c70f2f145a1d9d303404d29c392406993bce65bb3c17"
-    arm64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.09/linux_arm64.tar.gz"
-    arm64.sha256 = "37af21257f2c2b86d6c875d246e37ce5ea33a7bdaa7aaf47e19642e7e4d05157"
+    amd64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.13/linux_amd64.tar.gz"
+    amd64.sha256 = "7c1f6be377aa0cc42de53feccff925a59a337f6279c45c9e40cac1034480685a"
+    arm64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.13/linux_arm64.tar.gz"
+    arm64.sha256 = "f20dbbe67e77eb784fd3debe19d6d89b8299e5dbe63d5409fdcb6cc71b8c30f7"
 
     autoupdate.strategy = "latest_github_tag"
    
