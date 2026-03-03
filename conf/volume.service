@@ -8,9 +8,9 @@ Restart=on-failure
 RestartSec=5s
 User=__APP__
 Group=__APP__
-WorkingDirectory=__DATA_DIR__/
+WorkingDirectory=__INSTALL_DIR__/
 #EnvironmentFile=__INSTALL_DIR__/.env
-ExecStart=__INSTALL_DIR__/./weed volume -dir="__DATA_DIR__/datadir" -master=localhost:__PORT_MASTER__  -port=__PORT_VOLUME__
+ExecStart=__INSTALL_DIR__/./weed volume -max=0  -dir="__DATA_DIR__/datadir" -master=localhost:__PORT_MASTER__  -port=__PORT_VOLUME__
 StandardOutput=append:/var/log/__APP__/__APP__-volume@__NEXT_INDEX__.log
 StandardError=inherit
 
