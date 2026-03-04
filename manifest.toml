@@ -51,7 +51,9 @@ ram.runtime = "200M"
     help.en = "Will depend on free disk space. Each bucket will create one collection, with at least 7 volumes by default. Note that multiple volume servers can be created."
     help.fr = "En fonction de l'espace disque disponible. Cahque bucket crée une collection de, par défaut, 7 volumes. Plusieurs serveurs de volumes peuvent être créés ultérieurement."
     type = "number"
-    default = "100"
+    default = 100
+    min = 10
+    max = 50000
        
 [resources]
 
