@@ -26,8 +26,8 @@ name.en = "Embedding"
 name.fr = "Intégration"
 
 [main.embedding.allowed_urls]
-ask.en = "List of web addresses authorized to integrate Seaweedfs files"
-ask.fr = "Liste des adresses web autorisées à intégrer des aperçus de fichiers de Seaweedfs"
+ask.en = "List of web addresses authorized to integrate Seaweedfs files (comma separated)"
+ask.fr = "Liste des adresses web (séparées par des virgules) autorisées à intégrer des aperçus de fichiers de Seaweedfs"
 type = "string"
 bind= "null"
 
