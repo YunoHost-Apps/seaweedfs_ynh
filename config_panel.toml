@@ -21,10 +21,15 @@ ask.en = "Size limit file upload (Mb)"
 type = "number"
 bind = "null"
 
-[main.allowed_urls]
-	ask.en = "List of web addresses authorized to integrate Seaweedfs files"
-	ask.fr = "Liste des adresses web autorisées à intégrer des aperçus de fichiers de Seaweedfs"
-	type = "string"
+[main.embedding]
+name.en = "Embedding"
+name.fr = "Intégration"
+
+[main.embedding.allowed_urls]
+ask.en = "List of web addresses authorized to integrate Seaweedfs files"
+ask.fr = "Liste des adresses web autorisées à intégrer des aperçus de fichiers de Seaweedfs"
+type = "string"
+bind= "null"
 
 
 [main.volume]
