@@ -14,11 +14,12 @@ source /usr/share/yunohost/helpers
 upload_max_size=500
 index_volume=1
 next_index=1
+allowed_urls=""
 admin_key=$(ynh_string_random --length=20)
 admin_secret=$(ynh_string_random --length=40)
 ynh_app_setting_set --app=$app --key=admin_key --value=$admin_key
 ynh_app_setting_set --app=$app --key=admin_secret --value=$admin_secret
-allowed_urls=""
+ynh_app_setting_set --app=$app --key=allowed_urls --value=$allowed_urls
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
