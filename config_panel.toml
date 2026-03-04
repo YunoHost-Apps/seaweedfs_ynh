@@ -3,7 +3,7 @@ version = "1.0"
 [main]
 name.en = "Configuration panel"
 name.fr = "Panneau de configuration"
-services = ["__APP__-master", "__APP__-admin"]
+services = ["__APP__-master", "__APP__-admin", "nginx"]
 
 [main.limit_size]
 name.en = "Upload limit size"
