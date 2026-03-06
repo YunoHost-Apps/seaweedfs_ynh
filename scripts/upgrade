@@ -70,6 +70,7 @@ ynh_setup_source --dest_dir="$install_dir" --full_replace=1
 admin_secret=$(ynh_app_setting_get --app=$app --key=admin_secret)
 admin_key=$(ynh_app_setting_get --app=$app --key=admin_key)
 ynh_config_add --template="config.json" --destination="$install_dir/config.json"
+ynh_config_add --template="security.toml" --destination="$install_dir/security.toml"
 
 #### Recreate default worker
 ynh_config_add_systemd --service="$app-worker@$next_index" --template="worker.service"
