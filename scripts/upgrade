@@ -26,7 +26,7 @@ if [ -z "$jwt_filer_signing" ]; then
     ynh_app_setting_set --app=$app --key=jwt_filer_signing --value=$jwt_filer_signing
 fi
 
-jwt_filer_signing=$(ynh_app_setting_get --app=$app --key=jwt_filer_signing)
+jwt_filer_signing_read=$(ynh_app_setting_get --app=$app --key=jwt_filer_signing_read)
 if [ -z "$jwt_filer_signing_read" ]; then
     jwt_filer_signing_read=$(ynh_string_random --length=32)
     ynh_app_setting_set --app=$app --key=jwt_filer_signing_read --value=$jwt_filer_signing_read
