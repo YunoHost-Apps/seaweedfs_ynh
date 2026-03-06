@@ -17,8 +17,17 @@ next_index=1
 allowed_urls=""
 admin_key=$(ynh_string_random --length=20)
 admin_secret=$(ynh_string_random --length=40)
+jwt_signing=$(ynh_string_random --length=32)
+jwt_filer_signing=$(ynh_string_random --length=32)
+jwt_filer_signing_read=$(ynh_string_random --length=32)
+
 ynh_app_setting_set --app=$app --key=admin_key --value=$admin_key
 ynh_app_setting_set --app=$app --key=admin_secret --value=$admin_secret
+ynh_app_setting_set --app=$app --key=jwt_signing --value=$jwt_signing
+ynh_app_setting_set --app=$app --key=jwt_filer_signing --value=$jwt_filer_signing
+ynh_app_setting_set --app=$app --key=jwt_filer_signing --value=$jwt_filer_signing
+
+
 ynh_app_setting_set --app=$app --key=allowed_urls --value=$allowed_urls
 
 #=================================================
