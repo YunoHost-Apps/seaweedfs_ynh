@@ -10,7 +10,7 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 #EnvironmentFile=__INSTALL_DIR__/.env
-ExecStart=__INSTALL_DIR__/./weed worker -admin=localhost:__PORT_ADMIN__ -capabilities=vacuum,erasure_coding,balance
+ExecStart=__INSTALL_DIR__/./weed worker -admin=localhost:__PORT_ADMIN__ -jobType=vacuum,erasure_coding,balance
 StandardOutput=append:/var/log/__APP__/__APP__-worker@__NEXT_INDEX__.log
 StandardError=inherit
 
