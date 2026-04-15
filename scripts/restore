@@ -68,7 +68,7 @@ ynh_script_progression "Restoring $app's services..."
   ynh_config_add_systemd --service="$app-worker@$next_index" --template="worker.service"
   yunohost service add "$app-worker@$next_index" --description="SeaweedFS worker@$next_index" --log="/var/log/$app/$app-worker@${next_index}.log"
   ynh_systemctl --service="$app-worker@$next_index" --action="start"
-  
+
 #### f. admin
   ynh_restore "/etc/systemd/system/$app-admin.service"
   systemctl enable "$app-admin.service" --quiet
@@ -76,16 +76,16 @@ ynh_script_progression "Restoring $app's services..."
   ynh_systemctl --service="$app-admin" --action="start"
 
 #=================================================
-# 
+#
 #=================================================
 
 ### change worker id
   pushd "$install_dir"
-  sleep 5
+    sleep 5
 # add check
-  if [ -f worker.id ]; then
-      mv worker.id "worker@${next_index}.id"
-  fi
+    if [ -f worker.id ]; then
+        mv worker.id "worker@${next_index}.id"
+    fi
   popd
 
 #### logs
