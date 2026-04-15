@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #=================================================
 # IMPORT GENERIC HELPERS
@@ -86,7 +87,7 @@ run__delete_volume() {
     ynh_safe_rm /etc/systemd/system/$volume.service
     ynh_app_setting_delete --key="port_volume_${volume_id}" 2>/dev/null || true
     ynh_print_info "$volume removed."
-    systemctl daemon-reload     
+    systemctl daemon-reload
 }
 
 run__add_worker() {
