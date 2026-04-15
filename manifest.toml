@@ -39,12 +39,12 @@ ram.runtime = "200M"
 
     [install.admin]
     type = "user"
-    
+
     [install.admin_pw]
     ask.en = "Please chose a password for the admin user."
     ask.fr = "Choisissez un mot de passe pour l'administrateur."
     type = "password"
-    
+
     [install.volume_size]
     ask.en = "Size of each volume in Mb"
     ask.fr = "Taille de chaque volume en Mo"
@@ -54,7 +54,7 @@ ram.runtime = "200M"
     default = 100
     min = 10
     max = 50000
-       
+
 [resources]
 
     [resources.sources.main]
@@ -67,7 +67,7 @@ ram.runtime = "200M"
     autoupdate.asset.amd64 = "linux_amd64.tar.gz"
     autoupdate.asset.arm64 = "linux_arm64.tar.gz"
     autoupdate.strategy = "latest_github_release"
-   
+
     [resources.system_user]
 
     [resources.install_dir]
@@ -80,10 +80,10 @@ ram.runtime = "200M"
     admin.url = "/admin"
     admin.allowed = "admins"
     admin.auth_header = false
-    
+
     [resources.ports]
     admin.default = 23646
     master.default = 9333
     filer.default = 8888
     volume.default = 8080
-    api.default = 8333 # port pour s3
+    api.default = 8333 # port for s3
