@@ -94,7 +94,7 @@ ynh_config_add_logrotate
 touch /var/log/$app/$app-master.log
 touch /var/log/$app/$app-filer.log
 for index_volume in "${volume_index[@]}"; do
-touch /var/log/$app/$app-volume@$index_volume.log
+    touch /var/log/$app/$app-volume@$index_volume.log
 done
 
 touch /var/log/$app/$app-admin.log
