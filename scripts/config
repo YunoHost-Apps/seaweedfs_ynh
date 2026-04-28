@@ -113,7 +113,7 @@ run__delete_worker() {
     ynh_app_setting_delete --key=checksum__etc_systemd_system_${worker}.service
     ynh_print_info "$worker removed."
     systemctl daemon-reload
-    pushd "install_dir"
+    pushd "$install_dir"
         rm worker@${worker_id}.id
     popd
     systemctl restart seaweedfs-admin
