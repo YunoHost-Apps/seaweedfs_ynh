@@ -89,7 +89,7 @@ ynh_systemctl --service=nginx --action=reload
 sleep 30
 
 pushd "$install_dir"
-	mv worker.id "worker@${next_index}.id"
+#	mv worker.id "worker@${next_index}.id"
     yunohost app shell seaweedfs <<EOF
     ./weed shell <<INNER
     s3.configure -user=$admin -access_key=$admin_key -secret_key=$admin_secret  -apply
