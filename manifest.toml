@@ -5,7 +5,7 @@ name = "SeaweedFS"
 description.en = "Versatile and efficient storage system"
 description.fr = "Système de stockage polyvalent et efficace"
 
-version = "4.21~ynh1"
+version = "4.22~ynh1"
 
 maintainers = ["otm33GH"]
 
