@@ -13,7 +13,7 @@ source /usr/share/yunohost/helpers
 
 upload_max_size=500
 index_volume=1
-next_index=1
+index_worker=1
 allowed_urls=""
 admin_key=$(ynh_string_random --length=20)
 admin_secret=$(ynh_string_random --length=40)
@@ -48,7 +48,7 @@ ynh_config_add_systemd --service="$app-master" --template="master.service"
 ynh_config_add_systemd --service="$app-volume@$index_volume" --template="volume.service"
 ynh_config_add_systemd --service="$app-filer" --template="filer.service"
 ynh_config_add_systemd --service="$app-s3" --template="s3.service"
-ynh_config_add_systemd --service="$app-worker@$next_index" --template="worker.service"
+ynh_config_add_systemd --service="$app-worker@$index_worker" --template="worker.service"
 ynh_config_add_systemd --service="$app-admin" --template="admin.service"
 
 ynh_app_setting_set --app=$app --key=upload_max_size --value=$upload_max_size
@@ -57,7 +57,7 @@ yunohost service add "$app-master" --description="SeaweedFS Master" --log="/var/
 yunohost service add "$app-volume@$index_volume" --description="SeaweedFS volume@$index_volume" --log="/var/log/$app/$app-volume@${index_volume}.log"
 yunohost service add "$app-filer" --description="SeaweedFS Filer" --log="/var/log/$app/$app-filer.log"
 yunohost service add "$app-s3" --description="SeaweedFS S3 API" --log="/var/log/$app/$app-s3.log"
-yunohost service add "$app-worker@$next_index" --description="SeaweedFS worker@$next_index" --log="/var/log/$app/$app-worker@${next_index}.log"
+yunohost service add "$app-worker@$index_worker" --description="SeaweedFS worker@$index_worker" --log="/var/log/$app/$app-worker@${index_worker}.log"
 yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var/log/$app/$app-admin.log"
 
 #=================================================
