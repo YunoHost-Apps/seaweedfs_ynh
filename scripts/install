@@ -12,6 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 upload_max_size=500
+next_index=1
 index_volume=1
 index_worker=1
 allowed_urls=""
