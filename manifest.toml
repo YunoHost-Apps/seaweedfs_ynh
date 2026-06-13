@@ -87,3 +87,4 @@ ram.runtime = "200M"
     filer.default = 8888
     volume.default = 8080
     api.default = 8333 # port for s3
+    iceberg.default = 8181 # port for iceberg
