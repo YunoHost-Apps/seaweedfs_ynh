@@ -10,7 +10,7 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 #EnvironmentFile=__INSTALL_DIR__/.env
-ExecStart=__INSTALL_DIR__/./weed s3 -port=__PORT_API__ -filer=localhost:__PORT_FILER__ -config=config.json -iceberg.port=__PORT_ICEBERG__
+ExecStart=__INSTALL_DIR__/./weed s3 -port=__PORT_API__ -filer=localhost:__PORT_FILER__ -config=config.json -iceberg.port=8181
 StandardOutput=append:/var/log/__APP__/__APP__-s3.log
 StandardError=inherit
 
