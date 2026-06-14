@@ -50,6 +50,15 @@ done
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
 
 #=================================================
+# Iceberg patch > v4.32
+# add key custom iceberg.port in s3 service 
+#=================================================
+if ynh_app_upgrading_from_version_after_or_equal_to 4.32~ynh1; then
+    ynh_config_remove_systemd "$app-s3"
+    ynh_config_add_systemd --service="$app-s3" --template="s3.service"
+fi
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
