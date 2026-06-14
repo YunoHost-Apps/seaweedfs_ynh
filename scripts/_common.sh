@@ -21,3 +21,9 @@ for work in /etc/systemd/system/${app}-worker@*.service; do
     index="${instance##*@}"                  
     worker_index+=("$index")
 done
+
+ynh_app_upgrading_from_version_after_or_equal_to() {
+    local version=$1
+    [[ $version =~ '~ynh' ]] || ynh_die "Invalid argument for version, should include the ~ynhX prefix"
+    dpkg --compare-versions "$YNH_APP_CURRENT_VERSION" ge "$version"
+}
