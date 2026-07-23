@@ -5,7 +5,7 @@ name = "SeaweedFS"
 description.en = "Versatile and efficient storage system"
 description.fr = "Système de stockage polyvalent et efficace"
 
-version = "4.39~ynh1"
+version = "4.40~ynh1"
 
 maintainers = ["otm33GH"]
 
@@ -59,10 +59,10 @@ ram.runtime = "200M"
 
     [resources.sources.main]
     in_subdir = false
-    amd64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.39/linux_amd64.tar.gz"
-    amd64.sha256 = "d25a3f5d8f01a5c6e3f20566ef796f217f9314e6e8bf01169e12643096763773"
-    arm64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.39/linux_arm64.tar.gz"
-    arm64.sha256 = "edfec0432f3f6c28401358d71f93ec946ab36edafa4264cc571a1b99b9d97be7"
+    amd64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.40/linux_amd64.tar.gz"
+    amd64.sha256 = "0c63aec15429d17e216fdb878a92532188d3e147d7f072645bfec9eb6f992a02"
+    arm64.url = "https://github.com/seaweedfs/seaweedfs/releases/download/4.40/linux_arm64.tar.gz"
+    arm64.sha256 = "9e6551612479f379845592a0f308d27939d55042710fc2b05d948a1d59084e78"
 
     autoupdate.asset.amd64 = "linux_amd64.tar.gz"
     autoupdate.asset.arm64 = "linux_arm64.tar.gz"
