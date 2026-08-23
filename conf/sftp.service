@@ -9,7 +9,7 @@ RestartSec=5s
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__
-ExecStart=__INSTALL_DIR__/./weed sftp -port=2022 -filer=localhost:8888 -userStoreFile=__DATA_DIR__/users.json -hostKeysFolder=__DATA_DIR__/ssh_keys
+ExecStart=__INSTALL_DIR__/./weed sftp -port=__PORT_SFTP__ -filer=localhost:8888 -userStoreFile=__DATA_DIR__/users.json -hostKeysFolder=__DATA_DIR__/ssh_keys
 StandardOutput=append:/var/log/__APP__/__APP__-sftp.log
 StandardError=inherit
 
