@@ -62,6 +62,8 @@ if ynh_hide_warnings yunohost service status "$app-s3" >/dev/null; then
 fi
 ynh_config_remove_systemd "$app-s3"
 
+ynh_config_remove_systemd "$app-sftp"
+
 ynh_config_remove_nginx
 ynh_systemctl --service=nginx --action=reload
 
