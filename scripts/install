@@ -64,7 +64,7 @@ yunohost service add "$app-filer" --description="SeaweedFS Filer" --log="/var/lo
 yunohost service add "$app-s3" --description="SeaweedFS S3 API" --log="/var/log/$app/$app-s3.log"
 yunohost service add "$app-worker@$index_worker" --description="SeaweedFS worker@$index_worker" --log="/var/log/$app/$app-worker@${index_worker}.log"
 yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var/log/$app/$app-admin.log"
-yunohost service add "$app-admin" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
+yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
 
 
 #=================================================
