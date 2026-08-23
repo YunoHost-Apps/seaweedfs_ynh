@@ -9,8 +9,6 @@ L'adresse de l'API est <https://__DOMAIN____PATH__>.
 ```
 AWS_ACCESS_KEY_ID=__ADMIN_KEY__  
 AWS_SECRET_ACCESS_KEY=__ADMIN_SECRET__
-Mot de passe SFTP=__SFTP_PASSWORD__
-
 ``` 
 
 D'autres utilisateurs peuvent être ajoutés via le panel admin de seaweedfs.
