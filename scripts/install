@@ -16,6 +16,7 @@ next_index=1
 index_volume=1
 index_worker=1
 allowed_urls=""
+sftp_password=$admin_pw
 admin_key=$(ynh_string_random --length=20)
 admin_secret=$(ynh_string_random --length=40)
 jwt_signing=$(ynh_string_random --length=32)
@@ -31,7 +32,7 @@ ynh_app_setting_set --app=$app --key=jwt_filer_signing_read --value=$jwt_filer_s
 
 ynh_app_setting_set --app=$app --key=allowed_urls --value=$allowed_urls
 ynh_app_setting_set --app=$app --key=sftp_enable --value=false
-ynh_app_setting_set --app=$app --key=sftp_password --value=$admin_pw
+ynh_app_setting_set --app=$app --key=sftp_password --value=$sftp_password
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
