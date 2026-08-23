@@ -124,9 +124,11 @@ get__sftp_enable() {
 set__sftp_enable() {
     if [ "$sftp_enable" == "1" ]; then
         ynh_systemctl --service="$app-sftp" --action="start"
+        yunohost firewall allow TCP __PORT_SFTP__
         ynh_app_setting_set --key="sftp_enable" --value=true
     else
         ynh_systemctl --service="$app-sftp" --action="stop"
+        yunohost firewall disallow TCP __PORT_SFTP__
         ynh_app_setting_set --key="sftp_enable" --value=false
     fi
 }
