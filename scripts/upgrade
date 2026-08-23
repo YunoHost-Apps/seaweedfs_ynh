@@ -11,6 +11,8 @@ source /usr/share/yunohost/helpers
 # INITIALIZE SETTINGS
 #=================================================
 
+ynh_app_setting_set --app=$app --key=sftp_enable --value=false
+
 ## upgrade from 4.13
 jwt_signing=$(ynh_app_setting_get --app=$app --key=jwt_signing)
 if [ -z "$jwt_signing" ]; then
@@ -48,6 +50,11 @@ for index_worker in "${worker_index[@]}"; do
 done
 
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
+
+# upgrade from 4.44~ynh2
+if ynh_app_upgrading_from_version_before 4.44~ynh2; then
+
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
