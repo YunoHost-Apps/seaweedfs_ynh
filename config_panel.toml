@@ -100,4 +100,8 @@ ask.fr = "Activer l'accès SFTP"
 ask.en = "Enable SFTP access"
 type = "boolean"
 bind = "null"
-
+[main.sftp.sftp_password]
+ask.fr = "Mot de passe SFTP"
+ask.en = "SFTP password"
+type = "password"
+bind = "null"
