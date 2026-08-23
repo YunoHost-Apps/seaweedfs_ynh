@@ -91,3 +91,13 @@ type = "button"
 ask.fr = "Supprimer le worker"
 ask.en = "Remove worker"
 style = "danger"
+
+[main.sftp]
+name.en = "SFTP access"
+name.fr = "Accès SFTP"
+[main.sftp.sftp_enable]
+ask.fr = "Activer l'accès SFTP"
+ask.en = "Enable SFTP access"
+type = "boolean"
+bind = "null"
+
