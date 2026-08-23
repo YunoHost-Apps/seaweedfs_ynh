@@ -32,6 +32,15 @@ if [ -z "$jwt_filer_signing_read" ]; then
     ynh_app_setting_set --app=$app --key=jwt_filer_signing_read --value=$jwt_filer_signing_read
 fi
 
+# upgrade from < 4.44~ynh2
+if ynh_app_upgrading_from_version_before 4.44~ynh2; then
+    ynh_config_add --template="users.json" --destination="$data_dir/users.json"
+    ynh_config_add_systemd --service="$app-sftp" --template="sftp.service"
+    yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
+    ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys"
+    chmod 700 "$data_dir/ssh_keys"
+fi
+
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
@@ -50,11 +59,7 @@ for index_worker in "${worker_index[@]}"; do
 done
 
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
-
-# upgrade from 4.44~ynh2
-if ynh_app_upgrading_from_version_before 4.44~ynh2; then
-
-fi
+ynh_systemctl --service="$app-sftp" --action="stop" --log_path="systemd"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -92,6 +97,7 @@ for index_volume in "${volume_index[@]}"; do
 done
 
 touch /var/log/$app/$app-admin.log
+touch /var/log/$app/$app-sftp.log
 
 chown -R $app:$app /var/log/$app/
 
@@ -113,6 +119,8 @@ for index_worker in "${worker_index[@]}"; do
 done
 
 yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var/log/$app/$app-admin.log"
+yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
+
 ynh_systemctl --service="$app-master" --action="start"
 for index_volume in "${volume_index[@]}"; do
 	ynh_systemctl --service="$app-volume@$index_volume" --action="start"
