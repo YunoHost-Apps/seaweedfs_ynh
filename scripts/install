@@ -72,7 +72,7 @@ yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/
 # SSH HOST KEYS
 #=================================================
 
-ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys"
+ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys/ssh_host_key"
 chmod 700 "$data_dir/ssh_keys"
 
 #=================================================
