@@ -39,7 +39,7 @@ if ynh_app_upgrading_from_version_before 4.44~ynh2; then
     ynh_config_add --template="users.json" --destination="$data_dir/users.json"
     ynh_config_add_systemd --service="$app-sftp" --template="sftp.service"
     yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
-    ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys"
+    ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys/ssh_host_key"
     chmod 700 "$data_dir/ssh_keys"
 fi
 
