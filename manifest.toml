@@ -73,7 +73,7 @@ ram.runtime = "200M"
     [resources.install_dir]
 
     [resources.data_dir]
-    subdirs = ["datadir"]
+    subdirs = ["datadir", "ssh_keys"]
 
     [resources.permissions]
     main.url = "/"
