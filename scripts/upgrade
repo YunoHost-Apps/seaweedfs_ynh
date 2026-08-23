@@ -61,6 +61,7 @@ done
 
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
 ynh_systemctl --service="$app-sftp" --action="stop" --log_path="systemd"
+yunohost firewall disallow TCP "$port_sftp"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
