@@ -30,6 +30,7 @@ ynh_app_setting_set --app=$app --key=jwt_filer_signing_read --value=$jwt_filer_s
 
 
 ynh_app_setting_set --app=$app --key=allowed_urls --value=$allowed_urls
+ynh_app_setting_set --app=$app --key=sftp_enable --value=false
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -45,12 +46,15 @@ ynh_setup_source --dest_dir="$install_dir"
 ynh_config_add --template="config.json" --destination="$install_dir/config.json"
 ynh_config_add --template="security.toml" --destination="$install_dir/security.toml"
 
+ynh_config_add --template="users.json" --destination="$data_dir/users.json"
+
 ynh_config_add_systemd --service="$app-master" --template="master.service"
 ynh_config_add_systemd --service="$app-volume@$index_volume" --template="volume.service"
 ynh_config_add_systemd --service="$app-filer" --template="filer.service"
 ynh_config_add_systemd --service="$app-s3" --template="s3.service"
 ynh_config_add_systemd --service="$app-worker@$index_worker" --template="worker.service"
 ynh_config_add_systemd --service="$app-admin" --template="admin.service"
+ynh_config_add_systemd --service="$app-sftp" --template="sftp.service"
 
 ynh_app_setting_set --app=$app --key=upload_max_size --value=$upload_max_size
 
@@ -60,6 +64,15 @@ yunohost service add "$app-filer" --description="SeaweedFS Filer" --log="/var/lo
 yunohost service add "$app-s3" --description="SeaweedFS S3 API" --log="/var/log/$app/$app-s3.log"
 yunohost service add "$app-worker@$index_worker" --description="SeaweedFS worker@$index_worker" --log="/var/log/$app/$app-worker@${index_worker}.log"
 yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var/log/$app/$app-admin.log"
+yunohost service add "$app-admin" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
+
+
+#=================================================
+# SSH HOST KEYS
+#=================================================
+
+ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys"
+chmod 700 "$data_dir/ssh_keys"
 
 #=================================================
 # START SYSTEMD SERVICE
