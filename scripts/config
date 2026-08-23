@@ -116,5 +116,21 @@ run__delete_worker() {
 }
 
 #=================================================
+# START / STOP SFTP
+#=================================================
+get__sftp_enable() {
+        ynh_app_setting_get --key="sftp_enable"
+}
+set__sftp_enable() {
+    if [ "$sftp_enable" == "1" ]; then
+        ynh_systemctl --service="$app-sftp" --action="start"
+        ynh_app_setting_set --key="sftp_enable" --value=true
+    else
+        ynh_systemctl --service="$app-sftp" --action="stop"
+        ynh_app_setting_set --key="sftp_enable" --value=false
+    fi
+}
+
+#=================================================
 
 ynh_app_config_run $1
