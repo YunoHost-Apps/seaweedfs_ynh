@@ -145,6 +145,7 @@ set__sftp_password() {
         old_sftp_password=$(ynh_app_setting_get --key="sftp_password")
         ynh_app_setting_set --key="sftp_password" --value="$sftp_password"
         ynh_replace --match="$old_sftp_password" --replace="$sftp_password" --file="$data_dir/users.json"
+        ynh_systemctl --service="$app-sftp" --action="restart"
 }
 
 #=================================================
