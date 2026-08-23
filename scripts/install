@@ -31,6 +31,7 @@ ynh_app_setting_set --app=$app --key=jwt_filer_signing_read --value=$jwt_filer_s
 
 ynh_app_setting_set --app=$app --key=allowed_urls --value=$allowed_urls
 ynh_app_setting_set --app=$app --key=sftp_enable --value=false
+ynh_app_setting_set --app=$app --key=sftp_password --value=$admin_pw
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
