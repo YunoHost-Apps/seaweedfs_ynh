@@ -41,6 +41,7 @@ ynh_systemctl --service="$app-master" --action="stop" --log_path="systemd"
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
 ynh_systemctl --service="$app-s3" --action="stop" --log_path="systemd"
 ynh_systemctl --service="$app-sftp" --action="stop" --log_path="systemd"
+yunohost firewall disallow TCP "$port_sftp"
 
 if ynh_hide_warnings yunohost service status "$app-filer" >/dev/null; then
     yunohost service remove "$app-filer"
