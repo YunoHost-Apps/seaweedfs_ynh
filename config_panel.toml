@@ -98,6 +98,8 @@ name.fr = "Accès SFTP"
 [main.sftp.sftp_enable]
 ask.fr = "Activer l'accès SFTP"
 ask.en = "Enable SFTP access"
+help.fr = "NB: Le serveur SFTP est arrêté après une mise à jour, une restauration ou un changement d'URL de l'application."
+help.en = "NB: The SFTP server is stopped after an upgrade, restore, or URL change."
 type = "boolean"
 bind = "null"
 [main.sftp.sftp_password]
