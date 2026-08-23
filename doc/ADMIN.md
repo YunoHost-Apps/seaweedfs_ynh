@@ -6,7 +6,6 @@ The admin URL is <https://__DOMAIN____PATH__admin> and is available only to user
 ```
 AWS_ACCESS_KEY_ID=__ADMIN_KEY__  
 AWS_SECRET_ACCESS_KEY=__ADMIN_SECRET__
-SFTP Password=__SFTP_PASSWORD__
 ```
 
 Additional credentials can be created via the SeaweedFS admin panel.
