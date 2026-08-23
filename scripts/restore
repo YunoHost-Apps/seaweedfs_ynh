@@ -82,6 +82,10 @@ ynh_script_progression "Restoring $app's services..."
   yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var/log/$app/$app-admin.log"
   ynh_systemctl --service="$app-admin" --action="start"
 
+#### g. sftp
+  ynh_restore "/etc/systemd/system/$app-sftp.service"
+  systemctl enable "$app-sftp.service" --quiet
+  yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
 
 #### logs
 
