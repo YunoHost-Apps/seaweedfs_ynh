@@ -34,6 +34,8 @@ fi
 
 # upgrade from < 4.44~ynh2
 if ynh_app_upgrading_from_version_before 4.44~ynh2; then
+    sftp_password==$(ynh_string_random --length=12)
+    ynh_app_setting_set --app=$app --key=sftp_password --value=$sftp_password
     ynh_config_add --template="users.json" --destination="$data_dir/users.json"
     ynh_config_add_systemd --service="$app-sftp" --template="sftp.service"
     yunohost service add "$app-sftp" --description="SeaweedFS SFTP" --log="/var/log/$app/$app-sftp.log"
