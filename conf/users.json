@@ -1,1 +1,9 @@
-
+[
+  {
+    "Username": "__ADMIN__",
+    "Password": "__ADMIN_PW__",
+    "HomeDir": "/home/__ADMIN__",
+    "Uid": 0,
+    "Gid": 0
+  }
+]
