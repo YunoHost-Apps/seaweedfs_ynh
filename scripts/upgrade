@@ -38,7 +38,9 @@ if ynh_app_upgrading_from_version_before 4.44~ynh2; then
     ynh_app_setting_set --app=$app --key=sftp_password --value=$sftp_password
     ynh_config_add --template="users.json" --destination="$data_dir/users.json"
     ynh_config_add_systemd --service="$app-sftp" --template="sftp.service"
+    if [ ! -f "$data_dir/ssh_keys/ssh_host_key" ]; then
     ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys/ssh_host_key"
+    fi    
     chmod 700 "$data_dir/ssh_keys"
 fi
 
