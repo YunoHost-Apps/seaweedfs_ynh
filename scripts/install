@@ -72,7 +72,7 @@ yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var
 #=================================================
 
 ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys/ssh_host_key"
-chmod 700 "$data_dir/ssh_keys"
+chmod 600 "$data_dir/ssh_keys"
 
 #=================================================
 # START SYSTEMD SERVICE
