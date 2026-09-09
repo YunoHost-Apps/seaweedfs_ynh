@@ -5,7 +5,7 @@ name = "SeaweedFS"
 description.en = "Versatile and efficient storage system"
 description.fr = "Système de stockage polyvalent et efficace"
 
-version = "4.44~ynh1"
+version = "4.44~ynh2"
 
 maintainers = ["otm33GH"]
 
@@ -73,7 +73,7 @@ ram.runtime = "200M"
     [resources.install_dir]
 
     [resources.data_dir]
-    subdirs = ["datadir"]
+    subdirs = ["datadir", "ssh_keys"]
 
     [resources.permissions]
     main.url = "/"
@@ -87,3 +87,4 @@ ram.runtime = "200M"
     filer.default = 8888
     volume.default = 8080
     api.default = 8333 # port for s3
+    sftp.default = 2022

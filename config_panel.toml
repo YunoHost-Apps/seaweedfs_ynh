@@ -91,3 +91,21 @@ type = "button"
 ask.fr = "Supprimer le worker"
 ask.en = "Remove worker"
 style = "danger"
+
+[main.sftp]
+name.en = "SFTP access"
+name.fr = "Accès SFTP"
+[main.sftp.sftp_enable]
+ask.fr = "Activer l'accès SFTP"
+ask.en = "Enable SFTP access"
+help.fr = "NB: Le serveur SFTP est arrêté après une mise à jour, une restauration ou un changement d'URL de l'application."
+help.en = "NB: The SFTP server is stopped after an upgrade, restore, or URL change."
+type = "boolean"
+bind = "null"
+[main.sftp.sftp_password]
+ask.fr = "Définir le mot de passe SFTP de l'utilisateur choisi comme administrateur"
+ask.en = "Set the SFTP password for the admin user"
+help.fr = "D'autres utilisateurs SFTP peuvent être ajoutés en éditant le fichier `/home/yunohost.app/seaweedfs/users.json` puis en redémarrant le service seaweedfs-sftp avec `systemctl restart seaweedfs-sftp`"
+help.en = "Other SFTP users can be added in the `/home/yunohost.app/seaweedfs/users.json` file. Then restart seaweedfs-sftp service with `systemctl restart seaweedfs-sftp`"
+type = "password"
+bind = "null"
