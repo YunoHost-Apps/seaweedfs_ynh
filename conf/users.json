@@ -1,0 +1,9 @@
+[
+  {
+    "Username": "__ADMIN__",
+    "Password": "__SFTP_PASSWORD__",
+    "HomeDir": "/home/__ADMIN__",
+    "Uid": 0,
+    "Gid": 0
+  }
+]
