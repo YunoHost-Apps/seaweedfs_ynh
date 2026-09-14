@@ -26,6 +26,8 @@ for index_worker in "${worker_index[@]}"; do
 	ynh_systemctl --service="$app-worker@$index_worker" --action="stop" --log_path="systemd"
 done
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
+ynh_systemctl --service="$app-sftp" --action="stop" --log_path="systemd"
+yunohost firewall disallow TCP "$port_sftp"
 
 #=================================================
 # MODIFY URL IN NGINX CONF

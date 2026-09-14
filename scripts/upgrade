@@ -11,6 +11,8 @@ source /usr/share/yunohost/helpers
 # INITIALIZE SETTINGS
 #=================================================
 
+ynh_app_setting_set --app=$app --key=sftp_enable --value=false
+
 ## upgrade from 4.13
 jwt_signing=$(ynh_app_setting_get --app=$app --key=jwt_signing)
 if [ -z "$jwt_signing" ]; then
@@ -28,6 +30,18 @@ jwt_filer_signing_read=$(ynh_app_setting_get --app=$app --key=jwt_filer_signing_
 if [ -z "$jwt_filer_signing_read" ]; then
     jwt_filer_signing_read=$(ynh_string_random --length=32)
     ynh_app_setting_set --app=$app --key=jwt_filer_signing_read --value=$jwt_filer_signing_read
+fi
+
+# upgrade from < 4.44~ynh2
+if ynh_app_upgrading_from_version_before 4.44~ynh2; then
+    sftp_password==$(ynh_string_random --length=12)
+    ynh_app_setting_set --app=$app --key=sftp_password --value=$sftp_password
+    ynh_config_add --template="users.json" --destination="$data_dir/users.json"
+    ynh_config_add_systemd --service="$app-sftp" --template="sftp.service"
+    if [ ! -f "$data_dir/ssh_keys/ssh_host_key" ]; then
+    ynh_exec_as_app ssh-keygen -t rsa -N "" -f "$data_dir/ssh_keys/ssh_host_key"
+    fi    
+    chmod 700 "$data_dir/ssh_keys"
 fi
 
 #=================================================
@@ -48,6 +62,8 @@ for index_worker in "${worker_index[@]}"; do
 done
 
 ynh_systemctl --service="$app-admin" --action="stop" --log_path="systemd"
+ynh_systemctl --service="$app-sftp" --action="stop" --log_path="systemd"
+yunohost firewall disallow TCP "$port_sftp"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -85,6 +101,7 @@ for index_volume in "${volume_index[@]}"; do
 done
 
 touch /var/log/$app/$app-admin.log
+touch /var/log/$app/$app-sftp.log
 
 chown -R $app:$app /var/log/$app/
 
@@ -106,6 +123,7 @@ for index_worker in "${worker_index[@]}"; do
 done
 
 yunohost service add "$app-admin" --description="SeaweedFS Admin UI" --log="/var/log/$app/$app-admin.log"
+
 ynh_systemctl --service="$app-master" --action="start"
 for index_volume in "${volume_index[@]}"; do
 	ynh_systemctl --service="$app-volume@$index_volume" --action="start"

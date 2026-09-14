@@ -116,5 +116,38 @@ run__delete_worker() {
 }
 
 #=================================================
+# START / STOP SFTP
+#=================================================
+get__sftp_enable() {
+    if systemctl is-active --quiet "$app-sftp"; then
+        echo "true"
+    else
+        echo "false"
+    fi
+}
+set__sftp_enable() {
+    if [ "$sftp_enable" == "1" ]; then
+        ynh_systemctl --service="$app-sftp" --action="start"
+        yunohost firewall allow TCP "$port_sftp"
+        ynh_app_setting_set --key="sftp_enable" --value=true
+    else
+        ynh_systemctl --service="$app-sftp" --action="stop"
+        yunohost firewall disallow TCP "$port_sftp"
+        ynh_app_setting_set --key="sftp_enable" --value=false
+    fi
+}
+
+get__sftp_password() {
+        ynh_app_setting_get --key="sftp_password"
+
+}
+set__sftp_password() {
+        old_sftp_password=$(ynh_app_setting_get --key="sftp_password")
+        ynh_app_setting_set --key="sftp_password" --value="$sftp_password"
+        ynh_replace --match="$old_sftp_password" --replace="$sftp_password" --file="$data_dir/users.json"
+        ynh_systemctl --service="$app-sftp" --action="restart"
+}
+
+#=================================================
 
 ynh_app_config_run $1

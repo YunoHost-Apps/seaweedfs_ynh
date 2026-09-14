@@ -36,6 +36,7 @@ done
 
 ynh_backup "/etc/systemd/system/$app-admin.service"
 ynh_backup "/etc/systemd/system/$app-s3.service"
+ynh_backup "/etc/systemd/system/$app-sftp.service"
 
 ynh_backup "/etc/logrotate.d/$app"
 

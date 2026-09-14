@@ -20,4 +20,5 @@ test_format = 1.0
     # -------------------------------
     # Commits to test upgrade from
     # -------------------------------
-    
+
+    test_upgrade_from.966517b.name = "4.44~ynh1"
