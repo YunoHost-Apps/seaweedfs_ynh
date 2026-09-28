@@ -80,9 +80,9 @@ ram.runtime = "200M"
     admin.url = "/admin"
     admin.allowed = "admins"
     admin.auth_header = false
-    admin.url = "/metrics"
-    admin.allowed = "admins"
-    admin.auth_header = false
+    metrics.url = "/metrics"
+    metrics.allowed = "admins"
+    metrics.auth_header = false
 
     [resources.ports]
     admin.default = 23646
