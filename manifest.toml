@@ -5,7 +5,7 @@ name = "SeaweedFS"
 description.en = "Versatile and efficient storage system"
 description.fr = "Système de stockage polyvalent et efficace"
 
-version = "4.47~ynh2"
+version = "4.47~ynh3"
 
 maintainers = ["otm33GH"]
 
@@ -78,6 +78,9 @@ ram.runtime = "200M"
     [resources.permissions]
     main.url = "/"
     admin.url = "/admin"
+    admin.allowed = "admins"
+    admin.auth_header = false
+    admin.url = "/metrics"
     admin.allowed = "admins"
     admin.auth_header = false
 
